@@ -1,0 +1,69 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "GitHub Repository",
+	"behavior": "create",
+	"noteContentFormat": "## README\n\n{{selectorHtml:article|markdown}}\n\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:#repo-title-component a}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "[[People/First Last]]",
+			"type": "text"
+		},
+		{
+			"name": "owner",
+			"value": "{{meta:name:octolytics-dimension-user_login}}",
+			"type": "text"
+		},
+		{
+			"name": "github-login",
+			"value": "{{meta:name:octolytics-dimension-user_login}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "website",
+			"value": "{{selector:.Layout-sidebar a?href|first}}",
+			"type": "text"
+		},
+		{
+			"name": "description",
+			"value": "{{selector:.Layout-sidebar p|first}}",
+			"type": "text"
+		},
+		{
+			"name": "stars",
+			"value": "{{selector:#repo-stars-counter-star}}",
+			"type": "number"
+		},
+		{
+			"name": "tags",
+			"value": "github, repo, {{selector:.topic-tag|join:\\\", \\\"}}",
+			"type": "multitext"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "contenttype",
+			"value": "Repo",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://github.com/",
+		"https://gitlab"
+	],
+	"noteNameFormat": "{{meta:name:octolytics-dimension-user_login}} {{selector:#repo-title-component a}}: {{selector:.Layout-sidebar p|first}}",
+	"path": "Clippings/Github"
+}
