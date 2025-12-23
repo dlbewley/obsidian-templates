@@ -28,7 +28,8 @@ These are basic templates that may use dataviewjs to perform some inline queries
 * [Topic.md](Templates/Topic.md)
   - Form an overview of a topic. Notes frontmatter will referrence `Topics: "[[Topics/Foo]]"` making them easy to discover via the topic page.
 
-> [!NOTE] These following document templates rely on the [Templater plugin](https://github.com/SilentVoid13/Templater).
+> [!NOTE]
+> These following document templates rely on the [Templater plugin](https://github.com/SilentVoid13/Templater).
 
 * [daily.md](Templates/daily.md)
   - Create a daily note
