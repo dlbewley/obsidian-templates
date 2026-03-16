@@ -58,6 +58,11 @@
 			"name": "contenttype",
 			"value": "Repo",
 			"type": "text"
+		},
+    {
+			"name": "Topics",
+			"value": "",
+			"type": "multitext"
 		}
 	],
 	"triggers": [
