@@ -8,7 +8,7 @@ blog:
 github-login:
 work-login:
 ---
-
+`= this.file.name` is a x in Y
 ## Contact
 - Email `= "[" + this.email + "](mailto://" + this.email[0] + ")"`
 - Rover `= "[" + this.work-login + "](https://rover.redhat.com/people/profile/" + this.work-login + ")"`
@@ -26,4 +26,12 @@ work-login:
 ```dataview
 LIST
 WHERE contenttype = "Repo" AND owner = this.github-login
+```
+
+## Meetings
+```dataview
+LIST
+WHERE (contentType = "Meeting" OR contentType = "MeetingSeries")
+  AND (contains(attendees, this.file.link) OR contains(owners, this.file.link))
+sort file.ctime DESC
 ```

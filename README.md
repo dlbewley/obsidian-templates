@@ -34,11 +34,17 @@ These are basic templates that may use dataviewjs to perform some inline queries
 * [daily.md](Templates/daily.md)
   - Create a daily note
 
-* [weekly.md](Templates/weekly.md)
-  - Create a weekly note with links to all days that week
+* [Meeting.md](Templates/Meeting.md)
+  - Create a meeting note. Tracks attendees, agenda, notes, and action items. Moves the file into the appropriate Meetings folder and links to series.
+
+* [MeetingSeries.md](Templates/MeetingSeries.md)
+  - Create a meeting series note. Used to collect recurring or related meetings. Tracks owners, cadence, and automatically gathers all meeting instances in the series.
 
 * [monthly.md](Templates/monthly.md)
   - Create a monthly note with links to all days and weeks that month
+
+* [weekly.md](Templates/weekly.md)
+  - Create a weekly note with links to all days that week
 
 * [Quarterly Connections.md]("Templates/Quarterly Connections.md")
   - Create a quarterly connections note used for employee reviews
@@ -81,10 +87,10 @@ ProDev/
 ```
 Topics/
   ├── Career.md
+  ├── Meetings.md
   ├── Networking.md
   ├── OpenShift.md
   ├── People.md
-  ├── Sales.md
   └── Virtualization.md
 ```
 
@@ -92,3 +98,5 @@ Topics/
 
 - https://github.com/obsidian-community/web-clipper-templates/tree/main
 - https://github.com/Fred-Vatin/Web-Clipper-Templates
+- https://dannb.org/blog/2022/obsidian-people-note-template/
+- https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/

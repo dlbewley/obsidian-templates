@@ -12,7 +12,7 @@
 		{
 			"name": "author",
 			"value": "[[People/First Last]]",
-			"type": "text"
+			"type": "multitext"
 		},
 		{
 			"name": "owner",
@@ -58,6 +58,11 @@
 			"name": "contenttype",
 			"value": "Repo",
 			"type": "text"
+		},
+		{
+			"name": "Topics",
+			"value": "",
+			"type": "multitext"
 		}
 	],
 	"triggers": [
