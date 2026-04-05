@@ -1,0 +1,32 @@
+filters:
+  and:
+    - file.hasLink(this.file)
+formulas:
+  icon: |-
+    if(contenttype == "Book", "📖",
+    if(contenttype == "Bookmark", "🔖",
+    if(contenttype == "Chat", "💬",
+    if(contenttype == "Contact", "👤",
+    if(contenttype == "Index", "🗂️",
+    if(contenttype == "Journal", "📓",
+    if(contenttype == "Lesson", "👩🏻‍🏫",  
+    if(contenttype == "Mail", "✉️", 
+    if(contenttype == "Meeting", "📅",
+    if(contenttype == "MeetingSeries", "🔁",
+    if(contenttype == "Note", "📝",
+    if(contenttype == "Repo", "📦",
+    if(contenttype == "Web", "🌐"
+      )))))))))))))
+views:
+  - type: table
+    name: Table
+    groupBy:
+      property: contenttype
+      direction: ASC
+    order:
+      - formula.icon
+      - file.name
+      - file.path
+    sort:
+      - property: file.name
+        direction: ASC
