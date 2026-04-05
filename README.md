@@ -49,7 +49,7 @@ These are basic templates that may use dataviewjs to perform some inline queries
 * [weekly.md](Templates/weekly.md)
   - Create a weekly note with links to all days that week
 
-* [Quarterly Connections.md]("Templates/Quarterly Connections.md")
+* [Quarterly Connections.md](Templates/Quarterly%20Connections.md)
   - Create a quarterly connections note used for employee reviews
 
 ## Obsidian Bases
@@ -60,6 +60,10 @@ These are basic templates that may use dataviewjs to perform some inline queries
 # My Obsidian Conventions
 
 How I use Obsidian continues to evolve. But what follows is probably close to what I'm doing today.
+
+## Agentic AI
+
+I started by occasionally using [Cursor](https://cursor.com) to make sweeping edits or cleanups to my vault, by simply treating everything as simple Markdown. Which it is. I've recently been using [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) with the [Obsidian Skills](https://github.com/kepano/obsidian-skills) created by the Obsidian author. These skills take advantage of the [`obsidian` CLI](https://help.obsidian.md/cli) which allows the [Claude app](https://code.claude.com/docs/en/desktop-quickstart), not just Claude Code to make changes intelligently that allow Obsidian to maintain proper cross document linkages, etc.
 
 ## Plugins
 
