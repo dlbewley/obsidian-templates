@@ -5,65 +5,6 @@
 I need a place to keep my collection of templates for Obsidian documents and the Obsidian Web Clipper extension.
 These are some of them along with some notes on how I'm using Obsidian.
 
-## Web Clipper Templates
-
-These are based on the works of others. I have modified them to better suit my needs or just copied them here for convenience. See the [list of sources below](#other-template-sources-i-benefited-from).
-
-* [default-clipper.json](web-clipper-templates/default-clipper.json)
-  - Clipper for general web pages
-
-* [github-repository-clipper.json](web-clipper-templates/github-repository-clipper.json)
-  - Clipper for GitHub repositories
-
-* [google-mail-clipper.json](web-clipper-templates/google-mail-clipper.json)
-  - Clipper for Google Mail
-
-## Obsidian Document Templates
-
-These are basic templates that may use dataviewjs to perform some inline queries.
-
-* [daily.md](Templates/daily.md)
-  - Create a daily note
-
-* [Person.md](Templates/Person.md)
-  - Collect details about a person and generate dynamic links to find emails, git repos, and company profiles
-
-* [Meeting.md](Templates/Meeting.md)
-  - Create a meeting note. Tracks attendees, agenda, notes, and action items. Moves the file into the appropriate Meetings folder and links to series.
-
-* [MeetingSeries.md](Templates/MeetingSeries.md)
-  - Create a meeting series note. Used to collect recurring or related meetings. Tracks owners, cadence, and automatically gathers all meeting instances in the series.
-  - Agenda ideas for the next meeting; knowledge gleaned from individual meetings may be summarized on the meeting series page.
-
-* [monthly.md](Templates/monthly.md)
-  - Create a monthly note with links to all days and weeks that month
-
-* [Note.md](Templates/Note.md)
-  - General-purpose note with summary, key concepts, references, and connections (`contenttype: Note`).
-
-* [Presentation.md](Templates/Presentation.md)
-  - Marp slide deck starter (`marp: true` frontmatter). Custom CSS lives under [Templates/Marp/Themes/](Templates/Marp/Themes/) (for example `mylogo.css`, `palette-3.css`, `redhat.css`); [logo.png](Templates/logo.png) is referenced by some themes.
-
-* [Topic Template.md](Templates/Topic%20Template.md)
-  - Form an overview or "Index" of a topic. Notes that reference `Topics: "[[Topics/Foo]]"` making them easy to discover via the topic page.
-  - Used as the basis for new topic files and for indexing connections between notes and topics. Embeds the [Topic Links.base](Bases/Topic%20Links.base) to surface all notes on a topic.
-
-* [Quarterly Connection.md](Templates/Quarterly%20Connection.md)
-  - Create a quarterly connections note used for employee reviews.
-
-* [weekly.md](Templates/weekly.md)
-  - Create a weekly note with links to all days that week
-
-## Obsidian Bases
-
-* [Clippings.base](Bases/Clippings.base)
-  - Table and card views over notes in `Clippings/`, ordered by content type and metadata (for example `Topics`, `url`, `reviewed`).
-
-* [Meetings by Series.base](Bases/Meetings%20by%20Series.base)
-  - Meeting notes grouped by `series`, with formula columns for recording and series links; includes filtered views such as meetings in the current month.
-
-* [Topic Links.base](Bases/Topic%20Links.base)
-  - Lists notes that link to a given topic, grouped by content type with custom icons (typically embedded from a topic or [Topic Template](Templates/Topic%20Template.md)).
 
 # My Obsidian Conventions
 
@@ -127,9 +68,9 @@ The value is intially set by the Template or the Web Clipper Template and may be
 
 ## Obsidian Vault Folder Structure
 
-Do not get too obsessed about where to place notes. I find it helpful for certain content types to live in their own location, like People. When typing a link to a note that doesn't exist, you can influence where it goes if you include the folder in the name.
+Do not get too obsessed about where to place notes. I find it helpful for certain content types to live in their own location, like People. When typing a link to a note that doesn't exist, you can influence where it goes if you include the folder in the name. I generally have a top level folder for each contenttype. Eg. Meetings, People, Presentations. Clippings use a subfolder.
 
-For example, if I'm actively taking notes in a meeting (yes I do that) and a name comes up, I may type `[[People/Fred Jones]]` so that later if I decide to click on that and flesh out the note it will already be in the right place.
+For example, if I'm actively taking notes in a meeting (yes I do that) and a name comes up, I may type `[[People/Dale Bewley]]` so that later if I decide to click on that and flesh out the note it will already be in the right place.
 
 This is one reason I often use the Templater style of templates. My [Person](Templates/Person.md) template would automatically move the note for me when I applied it to the 'Fred Jones' note even if I hadn't already prefixed it with `People`.
 
@@ -190,10 +131,70 @@ Topics/
   └── Virtualization.md
 ```
 
-
 # Other Template Sources I Benefited From
 
 - https://github.com/obsidian-community/web-clipper-templates/tree/main
 - https://github.com/Fred-Vatin/Web-Clipper-Templates
 - https://dannb.org/blog/2022/obsidian-people-note-template/
 - https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/
+
+# Repo Contents
+## Web Clipper Templates
+
+These are based on the works of others. I have modified them to better suit my needs or just copied them here for convenience. See the [list of sources below](#other-template-sources-i-benefited-from).
+
+* [default-clipper.json](web-clipper-templates/default-clipper.json)
+  - Clipper for general web pages
+
+* [github-repository-clipper.json](web-clipper-templates/github-repository-clipper.json)
+  - Clipper for GitHub repositories
+
+* [google-mail-clipper.json](web-clipper-templates/google-mail-clipper.json)
+  - Clipper for Google Mail
+
+## Obsidian Document Templates
+
+These are basic templates that may use dataviewjs to perform some inline queries.
+
+* [daily.md](Templates/daily.md)
+  - Create a daily note
+
+* [Person.md](Templates/Person.md)
+  - Collect details about a person and generate dynamic links to find emails, git repos, and company profiles
+
+* [Meeting.md](Templates/Meeting.md)
+  - Create a meeting note. Tracks attendees, agenda, notes, and action items. Moves the file into the appropriate Meetings folder and links to series.
+
+* [MeetingSeries.md](Templates/MeetingSeries.md)
+  - Create a meeting series note. Used to collect recurring or related meetings. Tracks owners, cadence, and automatically gathers all meeting instances in the series.
+  - Agenda ideas for the next meeting; knowledge gleaned from individual meetings may be summarized on the meeting series page.
+
+* [monthly.md](Templates/monthly.md)
+  - Create a monthly note with links to all days and weeks that month
+
+* [Note.md](Templates/Note.md)
+  - General-purpose note with summary, key concepts, references, and connections (`contenttype: Note`).
+
+* [Presentation.md](Templates/Presentation.md)
+  - Marp slide deck starter (`marp: true` frontmatter). Custom CSS lives under [Templates/Marp/Themes/](Templates/Marp/Themes/) (for example `mylogo.css`, `palette-3.css`, `redhat.css`); [logo.png](Templates/logo.png) is referenced by some themes.
+
+* [Topic Template.md](Templates/Topic%20Template.md)
+  - Form an overview or "Index" of a topic. Notes that reference `Topics: "[[Topics/Foo]]"` making them easy to discover via the topic page.
+  - Used as the basis for new topic files and for indexing connections between notes and topics. Embeds the [Topic Links.base](Bases/Topic%20Links.base) to surface all notes on a topic.
+
+* [Quarterly Connection.md](Templates/Quarterly%20Connection.md)
+  - Create a quarterly connections note used for employee reviews.
+
+* [weekly.md](Templates/weekly.md)
+  - Create a weekly note with links to all days that week
+
+## Obsidian Bases
+
+* [Clippings.base](Bases/Clippings.base)
+  - Table and card views over notes in `Clippings/`, ordered by content type and metadata (for example `Topics`, `url`, `reviewed`).
+
+* [Meetings by Series.base](Bases/Meetings%20by%20Series.base)
+  - Meeting notes grouped by `series`, with formula columns for recording and series links; includes filtered views such as meetings in the current month.
+
+* [Topic Links.base](Bases/Topic%20Links.base)
+  - Lists notes that link to a given topic, grouped by content type with custom icons (typically embedded from a topic or [Topic Template](Templates/Topic%20Template.md)).
