@@ -1,0 +1,31 @@
+filters:
+  and:
+    - file.inFolder("Clippings")
+views:
+  - type: table
+    name: Table
+    order:
+      - contenttype
+      - Topics
+      - file.name
+      - title
+      - url
+      - reviewed
+      - summary
+    sort:
+      - property: contenttype
+        direction: ASC
+      - property: contentType
+        direction: DESC
+      - property: file.name
+        direction: DESC
+    columnSize:
+      note.title: 266
+      note.subject: 393
+  - type: table
+    name: View
+  - type: cards
+    name: Table 2
+    filters:
+      and:
+        - contenttype != """"

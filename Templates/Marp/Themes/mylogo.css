@@ -1,0 +1,66 @@
+/*!
+ * MyLogo 
+ *
+ * @theme mylogo
+ * @author dlbewley
+ *
+ * @auto-scaling true
+ * @size hd 1920px 1090px
+ * @size 4:3 960px 720px
+ * @size 4k 3840px 2160px
+ */
+/* mylogo.css */
+@import "default";
+
+/* Logo - Images and Text */
+section.title img[alt*="logo"],
+section.title .logo-emoji {
+  --offset: -1%;
+  --rotate: 0deg;
+
+  /* Position in lower right, by default */
+  position: absolute;
+  margin: 0;
+  right:  var(--offset);
+  bottom: 0;
+
+  /* For images */
+  width: 350px;
+  object-fit: contain;
+
+  /* For text emojis */
+  font-size: 350px;
+  line-height: 1;
+
+  /* Rotate it slightly */
+  transform: rotate(var(--rotate));
+  opacity: 0.5;
+}
+section {
+  column-gap: 2em;
+  column-rule: 1px solid #ccc;
+}
+
+section.icon img[alt*="logo"],
+section.icon .logo-emoji {
+  --offset: -1%;
+  --rotate: -45deg;
+
+  /* Position in lower right, by default */
+  position: absolute;
+  margin: 0;
+  right:  var(--offset);
+  bottom: 0;
+
+  /* For images */
+  width: 350px;
+  object-fit: contain;
+
+  /* For text emojis */
+  font-size: 350px;
+  line-height: 1;
+
+  /* Rotate it slightly */
+  transform: rotate(var(--rotate));
+  opacity: 0.5;
+}

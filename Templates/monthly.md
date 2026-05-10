@@ -124,6 +124,10 @@ ${weeklyLinks.join('\n')}
 
 ## 📅 Calendar
 ${calendarGrid.join('\n')}
+
+## 🗓 Meetings
+
+![[Meetings by Series.base#Meetings This Month]]
 `;
 
 console.log(`Attempting to rename to: ${filePath}/${fileName}`);
@@ -132,9 +136,7 @@ console.log("Rename completed");
 %>
 
 ## 🎯 Monthly Goals
-- [ ]
-- [ ]
-- [ ]
+-
 
 ## 📊 Month Summary
 ### Key Accomplishments
@@ -170,9 +172,7 @@ console.log("Rename completed");
 -
 
 ### Action Items for Next Month
-- [ ]
-- [ ]
-- [ ]
+-
 
 ## 📊 Metrics & KPIs
 -

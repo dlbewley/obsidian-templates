@@ -29,6 +29,9 @@ startOfWeek.setDate(diff);
 const endOfWeek = new Date(startOfWeek);
 endOfWeek.setDate(startOfWeek.getDate() + 6);
 
+const dayAfterWeek = new Date(startOfWeek);
+dayAfterWeek.setDate(startOfWeek.getDate() + 7);
+
 // Format dates for daily note links
 const formatDate = (date) => {
     return date.getFullYear() + '-' +
@@ -53,11 +56,11 @@ tags:
   - ${year}-W${weekPadded}
 ---
 
-# Week of ${formatDate(startOfWeek)} - ${formatDate(endOfWeek)}
+# Week of ${formatDate(startOfWeek)} to ${formatDate(endOfWeek)}
 
 _[[${monthFilePath}/${monthFileName}]]_
 
-## 📅 Daily Notes
+## 📘 Daily Notes
 
 ${dailyLinks.join('\n')}
 
@@ -67,38 +70,36 @@ console.log(`Attempting to rename to: ${filePath}/${fileName}`);
 await tp.file.move(`${filePath}/${fileName}`);
 console.log("Rename completed");
 %>
+
+## 📝 Weekly Notes
+-
+
 ## 🎯 Weekly Goals
-- [ ]
-- [ ]
-- [ ]
+- \[ \]
 
-## 📊 Week Summary
+## Week Summary
 
-### Key Accomplishments
+### 📅 Meetings
+
+```dataview
+TABLE date AS Date, summary AS Summary, series AS Series
+FROM "Meetings"
+WHERE contentType = "Meeting" AND file.name >= "<% formatDate(startOfWeek) %>" AND file.name < "<% formatDate(dayAfterWeek) %>"
+SORT file.name ASC
+```
+
+
+### 🧑‍💻 Activities
 -
 
-### Challenges Faced
+### 🏆 Accomplishments
 -
 
-### Lessons Learned
+### 🚧 Challenges Faced
 -
 
-### Next Week Priorities
-- [ ]
-- [ ]
-- [ ]
-
-## 📈 Metrics & Progress
+### 💡Lessons Learned
 -
 
-## 💭 Reflections
--
-
-## 🔗 Important Links
--
-
-## 📝 Notes
--
-
----
-
+## ❗️ Next Week Priorities
+- \[ \]
