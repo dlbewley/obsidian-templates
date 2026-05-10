@@ -1,4 +1,4 @@
-<%*
+<%* 
 const now = new Date();
 const year = now.getFullYear();
 const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -27,6 +27,7 @@ tags:
   - daily
   - ${year}-W${weekPadded}
   - ${year}-${month}
+contenttype: Journal
 ---
 
 # ${fileName}
@@ -40,16 +41,20 @@ console.log("Rename completed");
 %>
 
 ## 📌 Tasks
-- [ ]
+- \#todo \[\]
 
 ## 📅 Meetings
--
+- 
+```dataview
+TABLE summary
+FROM [[]]
+WHERE (contentType = "Meeting" OR contentType = "MeetingSeries")
+sort file.ctime DESC
+```
+
 
 ## 📘 Notes
--
-
-## 💡 Ideas (fleeting note)
-- #idea:
+- 
 
 ## ✅ Done
--
+- \#prodev

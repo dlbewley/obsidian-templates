@@ -1,0 +1,535 @@
+/*!
+ * Red Hat — Marp Theme
+ *
+ * @theme redhat
+ * @author dlbewley
+ *
+ * @auto-scaling true
+ * @size hd    1920px 1080px
+ * @size 16:9  1280px 720px
+ * @size 4:3    960px 720px
+ * @size 4k    3840px 2160px
+ */
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+@import "default";
+
+/* ─── Brand fonts (Red Hat open-source type family) ──────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Red+Hat+Text:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Red+Hat+Mono:wght@400;500&display=swap");
+
+/* ─── Brand palette ──────────────────────────────────────────────────────── */
+/*
+ * Source: Red Hat Brand Standards
+ * https://www.redhat.com/en/about/brand/standards/color
+ *
+ * Core
+ *   Red Hat Red      #CC0000
+ *   Red Hat Dark     #820000
+ *   Black            #151515
+ *   White            #FFFFFF
+ *
+ * Neutrals
+ *   Gray 90          #1A1A1A
+ *   Gray 70          #4D4D4D
+ *   Gray 50          #8A8D90
+ *   Gray 20          #D2D2D2
+ *   Gray 10          #F0F0F0
+ *
+ * Accents (Patternfly / Red Hat palette)
+ *   Blue             #0066CC
+ *   Blue Dark        #004080
+ *   Orange           #EC7A08
+ *   Green            #3E8635
+ *   Teal             #009596
+ *   Purple           #6753AC
+ */
+
+/* ─── Global slide defaults ──────────────────────────────────────────────── */
+section {
+  /* Palette variables — override per-slide by setting these in a scoped rule */
+  --rh-red:           #CC0000;
+  --rh-dark:          #820000;
+  --rh-black:         #151515;
+  --rh-white:         #FFFFFF;
+  --rh-gray-90:       #1A1A1A;
+  --rh-gray-70:       #4D4D4D;
+  --rh-gray-50:       #8A8D90;
+  --rh-gray-20:       #D2D2D2;
+  --rh-gray-10:       #F0F0F0;
+  --rh-blue:          #0066CC;
+  --rh-blue-dark:     #004080;
+  --rh-orange:        #EC7A08;
+  --rh-green:         #3E8635;
+  --rh-teal:          #009596;
+  --rh-purple:        #6753AC;
+
+  /* Marp theme variables */
+  --color-background:        var(--rh-white);
+  --color-foreground:        var(--rh-gray-90);
+  --color-highlight:         var(--rh-red);
+  --color-dimmed:            var(--rh-gray-50);
+
+  /* Typography */
+  font-family: "Red Hat Text", "Overpass", "Liberation Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--rh-gray-90);
+  background-color: var(--rh-white);
+
+  /* Spacing */
+  padding: 48px 60px 48px 60px;
+}
+
+/* ─── Headings ───────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Red Hat Display", "Overpass", "Liberation Sans", sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.35em 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.9em;
+  color: var(--rh-red);
+}
+
+h2 {
+  font-size: 1.45em;
+  color: var(--rh-red);
+  border-bottom: 3px solid var(--rh-red);
+  padding-bottom: 8px;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.1em;
+  color: var(--rh-gray-90);
+  margin-bottom: 0.2em;
+}
+
+h4, h5, h6 {
+  font-size: 0.95em;
+  color: var(--rh-gray-70);
+}
+
+/* ─── Inline elements ────────────────────────────────────────────────────── */
+strong {
+  color: var(--rh-red);
+  font-weight: 700;
+}
+
+em {
+  color: var(--rh-gray-70);
+  font-style: italic;
+}
+
+a {
+  color: var(--rh-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ─── Lists ──────────────────────────────────────────────────────────────── */
+ul, ol {
+  margin: 0.2em 0 0.5em 0;
+  padding-left: 1.4em;
+}
+
+li {
+  margin-bottom: 0.25em;
+}
+
+li::marker {
+  color: var(--rh-red);
+}
+
+/* ─── Code ───────────────────────────────────────────────────────────────── */
+code {
+  font-family: "Red Hat Mono", "Liberation Mono", "Courier New", monospace;
+  font-size: 0.82em;
+  background-color: var(--rh-gray-10);
+  border: 1px solid var(--rh-gray-20);
+  border-radius: 3px;
+  padding: 1px 5px;
+  color: var(--rh-gray-90);
+}
+
+pre {
+  font-family: "Red Hat Mono", "Liberation Mono", "Courier New", monospace;
+  font-size: 0.78em;
+  background-color: var(--rh-gray-10);
+  border-left: 4px solid var(--rh-red);
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  overflow: auto;
+  color: var(--rh-gray-90);
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1em;
+}
+
+/* ─── Tables ─────────────────────────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85em;
+  margin: 0.5em 0;
+}
+
+thead th {
+  background-color: var(--rh-red);
+  color: var(--rh-white);
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 700;
+  padding: 9px 14px;
+  text-align: left;
+}
+
+tbody td {
+  padding: 7px 14px;
+  border-bottom: 1px solid var(--rh-gray-20);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) td {
+  background-color: var(--rh-gray-10);
+}
+
+tbody tr:hover td {
+  background-color: #FFF0F0;
+}
+
+/* ─── Blockquotes ────────────────────────────────────────────────────────── */
+blockquote {
+  background-color: var(--rh-gray-10);
+  border-left: 5px solid var(--rh-red);
+  margin: 0.5em 0;
+  padding: 10px 18px;
+  font-style: italic;
+  color: var(--rh-gray-70);
+  border-radius: 0 4px 4px 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* ─── Pagination ─────────────────────────────────────────────────────────── */
+section::after {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 0.6em;
+  color: var(--rh-gray-50);
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SECTION CLASSES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Title / Lead slide ─────────────────────────────────────────────────── */
+/*
+ * Usage:  <!-- _class: title -->
+ *
+ * Expects optional background image and logo, e.g.:
+ *   ![bg brightness:0.3](img/openshift.png)
+ *   ![logo Logo](img/logo.png)
+ */
+section.title,
+section.lead {
+  background-color: var(--rh-black);
+  color: var(--rh-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 72px;
+}
+
+section.title h1,
+section.lead h1 {
+  font-size: 2.4em;
+  color: var(--rh-white);
+  border: none;
+  margin-bottom: 0.2em;
+}
+
+section.title h2,
+section.lead h2 {
+  font-size: 1.3em;
+  color: var(--rh-gray-20);
+  border: none;
+  font-weight: 400;
+  margin-bottom: 0.6em;
+}
+
+section.title p,
+section.lead p {
+  color: var(--rh-gray-50);
+  font-size: 0.85em;
+}
+
+section.title::after,
+section.lead::after {
+  color: var(--rh-gray-70);
+}
+
+/* ─── Section divider (chapter break) ───────────────────────────────────── */
+/*
+ * Usage:  <!-- _class: section -->
+ *
+ * Full-bleed Red Hat Red slide. Use for topic transitions.
+ */
+section.section {
+  background-color: var(--rh-red);
+  color: var(--rh-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 72px;
+}
+
+section.section h1,
+section.section h2 {
+  color: var(--rh-white);
+  border-color: rgba(255,255,255,0.35);
+}
+
+section.section h3,
+section.section p,
+section.section li {
+  color: rgba(255,255,255,0.85);
+}
+
+section.section li::marker {
+  color: rgba(255,255,255,0.6);
+}
+
+section.section::after {
+  color: rgba(255,255,255,0.5);
+}
+
+/* ─── Dark slide ─────────────────────────────────────────────────────────── */
+/*
+ * Usage:  <!-- _class: dark -->
+ */
+section.dark {
+  background-color: var(--rh-black);
+  color: var(--rh-gray-20);
+}
+
+section.dark h1 { color: var(--rh-red); }
+
+section.dark h2 {
+  color: var(--rh-white);
+  border-color: var(--rh-red);
+}
+
+section.dark h3 { color: var(--rh-gray-20); }
+
+section.dark strong { color: var(--rh-orange); }
+
+section.dark code {
+  background-color: #2A2A2A;
+  border-color: #444;
+  color: var(--rh-gray-20);
+}
+
+section.dark pre {
+  background-color: #1E1E1E;
+  border-left-color: var(--rh-red);
+  color: var(--rh-gray-20);
+}
+
+section.dark table thead th {
+  background-color: var(--rh-dark);
+}
+
+section.dark tbody td {
+  border-color: #333;
+}
+
+section.dark tbody tr:nth-child(even) td {
+  background-color: #222;
+}
+
+section.dark::after { color: var(--rh-gray-70); }
+
+/* ─── Invert / Light-on-dark variant ────────────────────────────────────── */
+/*
+ * Usage:  <!-- _class: invert -->
+ *
+ * Dark gray background — softer than full black.
+ */
+section.invert {
+  background-color: #2C2C2C;
+  color: var(--rh-gray-10);
+}
+
+section.invert h1 { color: var(--rh-red); }
+section.invert h2 { color: var(--rh-gray-10); border-color: var(--rh-red); }
+section.invert h3 { color: var(--rh-gray-20); }
+
+/* ─── Icon / watermark overlay ───────────────────────────────────────────── */
+/*
+ * Usage:  <!-- _class: icon -->
+ *
+ * Places an image or emoji in the lower-right corner as a
+ * large watermark, rotated slightly, at low opacity.
+ * Compatible with mylogo.css logo pattern.
+ *
+ * In your slide content add either:
+ *   ![logo Logo](img/logo.png)       ← image watermark
+ *   <span class="logo-emoji">🔒</span>  ← emoji watermark
+ */
+section.icon img[alt*="logo"],
+section.icon .logo-emoji {
+  --offset: -1%;
+  --rotate: -45deg;
+
+  position: absolute;
+  margin: 0;
+  right: var(--offset);
+  bottom: 0;
+
+  /* Image */
+  width: 340px;
+  object-fit: contain;
+
+  /* Emoji */
+  font-size: 340px;
+  line-height: 1;
+
+  transform: rotate(var(--rotate));
+  opacity: 0.07;
+}
+
+/* Title-slide logo (upright, no rotation, slightly stronger) */
+section.title img[alt*="logo"],
+section.lead img[alt*="logo"],
+section.title .logo-emoji,
+section.lead .logo-emoji {
+  --offset: 24px;
+  --rotate: 0deg;
+
+  position: absolute;
+  margin: 0;
+  right: var(--offset);
+  bottom: var(--offset);
+
+  width: 220px;
+  object-fit: contain;
+
+  font-size: 220px;
+  line-height: 1;
+
+  transform: rotate(var(--rotate));
+  opacity: 0.65;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Font size helpers ──────────────────────────────────────────────────── */
+section.font-lg  { font-size: 1.1em; }
+section.font-sm  { font-size: 0.88em; }
+section.font-xs  { font-size: 0.78em; }
+section.font-xxs { font-size: 0.68em; }
+
+/* ─── Background colour helpers ──────────────────────────────────────────── */
+section.bg-red    { background-color: var(--rh-red);    color: var(--rh-white); }
+section.bg-dark   { background-color: var(--rh-black);  color: var(--rh-white); }
+section.bg-blue   { background-color: var(--rh-blue-dark); color: var(--rh-white); }
+section.bg-teal   { background-color: var(--rh-teal);   color: var(--rh-white); }
+section.bg-orange { background-color: var(--rh-orange); color: var(--rh-white); }
+section.bg-gray   { background-color: var(--rh-gray-10); color: var(--rh-gray-90); }
+
+/* ─── Two-column layout ──────────────────────────────────────────────────── */
+/*
+ * Usage:
+ *   <div class="columns">
+ *   <div class="col">
+ *   Left content
+ *   </div>
+ *   <div class="col">
+ *   Right content
+ *   </div>
+ *   </div>
+ */
+.columns {
+  display: flex;
+  gap: 2em;
+}
+
+.col {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Wider / narrower column variants */
+.col-wide  { flex: 2; }
+.col-narrow { flex: 1; }
+
+/* ─── Callout / highlight box ────────────────────────────────────────────── */
+/*
+ * Usage:  <div class="callout">Important note</div>
+ */
+.callout {
+  background-color: #FFF0F0;
+  border-left: 5px solid var(--rh-red);
+  padding: 10px 16px;
+  border-radius: 0 4px 4px 0;
+  margin: 0.5em 0;
+  font-size: 0.9em;
+}
+
+.callout-blue {
+  background-color: #E8F4FD;
+  border-left: 5px solid var(--rh-blue);
+  padding: 10px 16px;
+  border-radius: 0 4px 4px 0;
+  margin: 0.5em 0;
+  font-size: 0.9em;
+}
+
+.callout-green {
+  background-color: #EAF5E9;
+  border-left: 5px solid var(--rh-green);
+  padding: 10px 16px;
+  border-radius: 0 4px 4px 0;
+  margin: 0.5em 0;
+  font-size: 0.9em;
+}
+
+/* ─── Tag / badge ────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  background-color: var(--rh-gray-10);
+  border: 1px solid var(--rh-gray-20);
+  border-radius: 4px;
+  padding: 1px 8px;
+  font-size: 0.72em;
+  font-family: "Red Hat Text", sans-serif;
+  color: var(--rh-gray-70);
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.tag-red {
+  background-color: var(--rh-red);
+  border-color: var(--rh-dark);
+  color: var(--rh-white);
+}
+
+.tag-blue {
+  background-color: var(--rh-blue);
+  border-color: var(--rh-blue-dark);
+  color: var(--rh-white);
+}

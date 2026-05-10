@@ -28,7 +28,7 @@ actions:
 ```
 
 ```meta-bind-button
-label: New Meeting Series
+label: New Meeting Series 
 icon: lucide-calendar-sync
 style: default
 class: ""
@@ -36,7 +36,7 @@ cssStyle: ""
 backgroundImage: ""
 tooltip: ""
 id: "new-meeting-series"
-hidden: true
+hidden: true 
 actions:
   - type: templaterCreateNote
     templateFile: "Templates/MeetingSeries.md"
@@ -48,16 +48,33 @@ actions:
 ```
 
 
-## Meeting Notes
-
+## Recurring Meetings
 ```dataview
-TABLE file.cday as Date, summary
+LIST "**" + summary + "** _(" + cadence + ")_ " + owners
+FROM "Meetings" 
+WHERE contentType = "MeetingSeries"
+SORT file.name
+```
+
+
+## Meetings Grouped by Series
+
+![[Meetings by Series.base]]
+
+[[Topic Links.base |Items]] in the `=this.file.name` topic
+![[Topic Links.base]]
+
+# Dataview Query Examples
+## Individual Meetings
+```xxxdataview
+TABLE file.cday as Date, summary 
 FROM "Meetings"
+WHERE contentType = "Meeting"
 SORT file.cday DESC
 ```
 
 ## Meetings
-```dataview
+```xxxdataview
 TABLE file.cday as Created, summary AS "Summary"
 FROM "Meetings" where contains(file.outlinks, [[]])
 SORT file.cday DESC
@@ -65,7 +82,7 @@ SORT file.cday DESC
 
 ## Meetings
 
-```dataview
+```xxxdataview
 TABLE file.name as "Meeting", file.cday as "Date", summary as "Summary"
 FROM "Meetings" where contains(file.outlinks, [[]])
 SORT file.cday DESC

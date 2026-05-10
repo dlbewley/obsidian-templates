@@ -3,7 +3,7 @@
 ![Built with AI](https://img.shields.io/badge/Built%20with-AI-blueviolet?style=for-the-badge)
 
 I need a place to keep my collection of templates for Obsidian documents and the Obsidian Web Clipper extension.
-These are some of them.
+These are some of them along with some notes on how I'm using Obsidian.
 
 ## Web Clipper Templates
 
@@ -22,35 +22,31 @@ These are based on the works of others. I have modified them to better suit my n
 
 These are basic templates that may use dataviewjs to perform some inline queries.
 
-* [Person.md](Templates/Person.md)
-  - Collect details about a person
-
-* [Topic.md](Templates/Topic.md)
-  - Form an overview of a topic. Notes frontmatter will referrence `Topics: "[[Topics/Foo]]"` making them easy to discover via the topic page.
-
-> [!NOTE]
-> These following document templates rely on the [Templater plugin](https://github.com/SilentVoid13/Templater).
-
 * [daily.md](Templates/daily.md)
   - Create a daily note
+
+* [Person.md](Templates/Person.md)
+  - Collect details about a person and generate dynamic links to find emails, git repos, and company profiles
 
 * [Meeting.md](Templates/Meeting.md)
   - Create a meeting note. Tracks attendees, agenda, notes, and action items. Moves the file into the appropriate Meetings folder and links to series.
 
 * [MeetingSeries.md](Templates/MeetingSeries.md)
   - Create a meeting series note. Used to collect recurring or related meetings. Tracks owners, cadence, and automatically gathers all meeting instances in the series.
+  - Agenda ides fo the next meeting, knowledge gleaned from individual meetings may be summarized on the meeting series page.
 
 * [monthly.md](Templates/monthly.md)
   - Create a monthly note with links to all days and weeks that month
 
 * [Topic Template.md](Templates/Topic%20Template.md)
-  - Core topic overview template for linking and organizing topic-related notes. Used as the basis for new topic files and for indexing connections between notes and topics. Embeds the [Topic Links.base](Bases/Topic%20Links.base) to surface all notes on a topic.
-
-* [weekly.md](Templates/weekly.md)
-  - Create a weekly note with links to all days that week
+  - Form an overview or "Index" of a topic. Notes that reference `Topics: "[[Topics/Foo]]"` making them easy to discover via the topic page.
+  - Used as the basis for new topic files and for indexing connections between notes and topics. Embeds the [Topic Links.base](Bases/Topic%20Links.base) to surface all notes on a topic.
 
 * [Quarterly Connections.md](Templates/Quarterly%20Connections.md)
   - Create a quarterly connections note used for employee reviews
+
+* [weekly.md](Templates/weekly.md)
+  - Create a weekly note with links to all days that week
 
 ## Obsidian Bases
 
@@ -65,7 +61,7 @@ How I use Obsidian continues to evolve. But what follows is probably close to wh
 
 I started by occasionally using [Cursor](https://cursor.com) to make sweeping edits or cleanups to my vault, by simply treating everything as simple Markdown. Which it is. I've recently been using [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) with the [Obsidian Skills](https://github.com/kepano/obsidian-skills) created by the Obsidian author. These skills take advantage of the [`obsidian` CLI](https://help.obsidian.md/cli) which allows the [Claude app](https://code.claude.com/docs/en/desktop-quickstart), not just Claude Code to make changes intelligently that allow Obsidian to maintain proper cross document linkages, etc.
 
-## Plugins
+## Obsidian Community Plugins
 
 Some plugins I am barely using but haven't removed, because I think they may be a good idea eventually. The Stickyness column indicates how much I use them.
 
@@ -77,12 +73,14 @@ A couple plugins are required by the for [Shimmering Obsidian](http://alfred.app
 | [Calendar](https://github.com/liamcain/obsidian-calendar-plugin) | Calendar view for navigating and creating daily notes. | ⭐️⭐️️⭐️⭐️️️️️️️️  |
 | [Dataview](https://github.com/blacksmithgu/obsidian-dataview) | Query and display vault data as tables, lists, and calendars using a SQL-like syntax. See [Templates/Person.md](Templates/Person.md). It's possible I could obviate this with the [Bases core plugin](https://obsidian.md/help/bases). 🤷‍♀️ | ⭐️⭐️⭐️⭐️⭐️ |
 | [Git](https://github.com/Vinzent03/obsidian-git) | Automatically commit and push vault changes to a Git repository. | ⭐️⭐️ |
+| Marp | Markdown Presentation Engine frontmatter properties. See example in [Templates/Presentation.md](Templates/Presentation.md) and the [Themes](Templates/Marp/Themes/) | ⭐️⭐️⭐️⭐️ |
 | [Meta Bind](https://github.com/mProjectsCode/obsidian-meta-bind-plugin) | Inline input fields and buttons bound to note frontmatter properties. See example in [Templates/Meeting.md](Templates/Meeting.md) | ⭐️⭐️⭐️⭐️ |
 | [Metadata Extractor](https://github.com/kometenstaub/metadata-extractor) | Exports vault metadata to JSON for use by external tools. For Alfred Workflow. | ⭐️⭐⭐⭐⭐️ |
 | [Omnisearch](https://github.com/scambier/obsidian-omnisearch) | Full-text search with fuzzy matching and PDF/image content indexing. | ⭐️⭐⭐️⭐️⭐️️ |
 | [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) | UI for customizing theme CSS variables without editing code. | ⭐️️ |
-| [Templater](https://github.com/SilentVoid13/Templater) | Powerful template engine with JavaScript scripting and auto-file placement. | ⭐️⭐️⭐️⭐️⭐️ |
 | [Tasks](https://publish.obsidian.md/tasks/Introduction) | Task management with due dates, recurrence, and queries across the vault. | ⭐️️⭐️⭐️ |
+| Taskboard | Task management with Kanban board. I'm not really using it much yet. | ⭐️️⭐️️ |
+| [Templater](https://github.com/SilentVoid13/Templater) | Powerful template engine with JavaScript scripting and auto-file placement. | ⭐️⭐️⭐️⭐️⭐️ |
 | [Text Extractor](https://github.com/scambier/obsidian-text-extractor) | Extracts text from PDFs and images to make them searchable by Omnisearch. | ⭐⭐⭐⭐️⭐️ |
 
 ## Content Types
@@ -136,6 +134,19 @@ Journal/
   ├── Daily/
   ├── Weekly/
   └── Monthly/
+```
+
+* Meetings
+All meeting notes are in a folder. Individual meeting notes have a date prefix.
+
+If those meetings are part of a series they include a `series` property pointing to a parent doc tracking the meetings from above. This can be helpful for tracking weekly office hours calls with product managers for example. The series note can contain current links to roadmap documents etc while the dated meeting notes retain a historical log.
+
+It may make sense to move the dated meeting notes to a subdirectory at some point.
+
+```
+Meetings/
+  ├── 2026-04-05 Fidget Spinner.md
+  └── Fidget Spinner.md
 ```
 
 * Career Stuff

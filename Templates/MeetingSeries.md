@@ -10,7 +10,7 @@ cadence:
 summary:
 ---
 
-<% await tp.file.move("/Meetings/" tp.file.title) %>
+<% await tp.file.move("/Meetings/" + tp.file.title) %>
 
 # `=this.file.name`
 

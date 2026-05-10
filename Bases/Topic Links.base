@@ -14,9 +14,10 @@ formulas:
     if(contenttype == "Meeting", "📅",
     if(contenttype == "MeetingSeries", "🔁",
     if(contenttype == "Note", "📝",
+    if(contenttype == "Presentation", "📊",
     if(contenttype == "Repo", "📦",
     if(contenttype == "Web", "🌐"
-      )))))))))))))
+      ))))))))))))))
 views:
   - type: table
     name: Table

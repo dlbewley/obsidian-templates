@@ -1,0 +1,38 @@
+filters:
+  and:
+    - contentType == "Meeting"
+formulas:
+  recording_link: if(recording, link(recording, "📹"), "")
+  series_link: if(series, link(series, "🔄"), "")
+properties:
+  summary:
+    displayName: Summary
+  formula.series_link:
+    displayName: Series
+  formula.recording_link:
+    displayName: Recording
+views:
+  - type: table
+    name: Meetings by Series
+    groupBy:
+      property: series
+      direction: ASC
+    order:
+      - file.name
+      - summary
+      - formula.recording_link
+      - formula.series_link
+
+  - type: table
+    name: Meetings This Month
+    filters:
+      and:
+        - 'file.hasTag(this.file.basename)'
+    groupBy:
+      property: series
+      direction: ASC
+    order:
+      - file.name
+      - summary
+      - formula.recording_link
+      - formula.series_link
