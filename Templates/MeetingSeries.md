@@ -4,8 +4,7 @@ tags: []
 Topics:
   - "[[Topics/Meetings]]"
 attendees: []
-owners:
-  - "[[People/First Last]]"
+owners: []
 cadence:
 summary:
 ---

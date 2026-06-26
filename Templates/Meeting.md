@@ -5,11 +5,11 @@ tags:
   - <% tp.date.now("YYYY-MM") %>
 Topics:
   - "[[Topics/Meetings]]"
-attendees:
-  - "[[People/First Last]]"
+attendees: []
 owners: []
 series:
 summary:
+recording:
 ---
 
 <% await tp.file.move("/Meetings/" + tp.date.now("YYYY-MM-DD") + " " + tp.file.title) %>
@@ -17,7 +17,9 @@ summary:
 # `=this.file.name`
 Date: [[<% tp.date.now("YYYY-MM-DD") %>]]
 Series: `=this.series`
+Recording: `=this.recording`
 
+## 📚 Documents
 ## 👥 Attendees
 - `=this.attendees`
 
