@@ -1,5 +1,5 @@
 /*!
- * MyLogo 
+ * MyLogo
  *
  * @theme mylogo
  * @author dlbewley
@@ -12,55 +12,203 @@
 /* mylogo.css */
 @import "default";
 
-/* Logo - Images and Text */
+/* ============================================================
+   QUICK REFERENCE — using this theme in a deck
+   (verbose guide: Templates/Marp/README.md)
+   ------------------------------------------------------------
+   Frontmatter:  marp: true   theme: mylogo   paginate: true   size: hd
+
+   Set per-slide options with a Marp class comment right under the `---`:
+       <!-- _class: icon ai kick -->
+
+   LAYOUT — pick one:
+       title   cover slide (shows the image logo, bottom-right)
+       icon    standard content slide (corner emoji watermark, tilted)
+       lead    centered closing / section slide
+
+   WATERMARK glyph — pick one, pair it with a layout:
+       note 🗒   star ⭐   tech ☸️   cal 📅   ai 🤖   win 🏆
+       watch 🔭  idea 💡   chart 📊  target 🎯  rocket 🚀
+       (to remap or add one, edit the `section.<name>::before` rules below)
+
+   HELPERS — optional, stack freely:
+       kick    style the first line under the heading as a small tagline
+       cta     style a plain list on the slide as red call-to-action cards
+
+   Keep decks HTML-free (no <style>/<span>/<div>) so PDF export stays clean.
+   ============================================================ */
+
+/* ============================================================
+   BASE TYPOGRAPHY & COLOR
+   Moved here out of each deck's inline <style> block so every deck
+   inherits one source of truth, and so it reliably travels to PDF
+   export (the theme is passed to marp-cli via --theme-set). Decks
+   should now carry essentially no <style> of their own.
+   ============================================================ */
+section {
+  font-family: "Red Hat Display", "Red Hat Text", "Overpass", sans-serif;
+  color: #1a1a1a;
+  padding: 40px 56px;
+  column-gap: 2em;
+  column-rule: 1px solid #ccc;
+}
+h1 { color: #CC0000; }
+h2 {
+  color: #CC0000;
+  border-bottom: 2px solid #CC0000;
+  padding-bottom: 6px;
+}
+h3 { color: #333; margin-bottom: 2px; }
+section.lead h1 { font-size: 2.6em; }
+section.lead h2 { border: none; color: #555; font-weight: 400; }
+table { width: 100%; border-collapse: collapse; font-size: 0.86em; }
+th { background: #CC0000; color: #fff; padding: 8px 12px; text-align: left; }
+td { padding: 7px 12px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f9f9f9; }
+ul { margin-top: 4px; }
+li { margin-bottom: 2px; }
+footer { font-size: 0.7em; color: #999; }
+
+/* Kicker — the small muted tagline directly under a slide heading.
+   Replaces the old <span class="tag"> chips, which were body HTML and
+   got stripped on PDF export. Opt in per slide with the `kick` class,
+   e.g.  <!-- _class: icon ai kick -->  then write the tagline as the
+   first paragraph right after the ## heading. */
+section.kick h2 + p {
+  display: inline-block;
+  background: #f0f0f0;
+  border-radius: 4px;
+  padding: 2px 10px;
+  margin-top: 2px;
+  font-size: 0.78em;
+  color: #555;
+}
+section.title p { font-size: 1.05em; color: #555; }
+section.title p:last-of-type { font-size: 0.85em; color: #777; }
+
+/* Call-to-action cards — style a plain markdown list as red-accented
+   boxes. Replaces the old <div class="cta"> blocks (body HTML, stripped
+   on export). Use  <!-- _class: icon target cta -->  with a normal list. */
+section.cta ul,
+section.cta ol { list-style: none; padding-left: 0; }
+section.cta li {
+  background: #fff5f5;
+  border-left: 5px solid #CC0000;
+  padding: 10px 16px;
+  margin: 8px 0;
+  font-size: 0.92em;
+}
+
+/* ============================================================
+   CORNER WATERMARK
+   Drawn by the theme via ::BEFORE (NOT ::after) so it needs no body HTML
+   and survives PDF / PPTX / PNG export.
+
+   Why ::before and not ::after: Marp's `paginate: true` renders the page
+   number on `section::after` (content: attr(data-marpit-pagination)). A
+   pseudo-element exists only once per element, so putting the watermark on
+   ::after collides with pagination — the page number wins the `content`
+   (emoji never shows) and the 350px watermark sizing leaks onto the page
+   number. ::before is free (Marp only uses it for a clearfix, which our
+   higher-specificity rules below override). This keeps the emoji watermark
+   and the page number fully independent.
+
+   Pick the glyph with a modifier class, e.g.  <!-- _class: icon ai -->.
+   (::before content emoji render as native glyphs, not twemoji <img>, so
+   they are immune to the image auto-fit rule entirely.)
+   ============================================================ */
+section.title::before,
+section.icon::before,
+section.lead::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -1%;
+  bottom: 0;
+  margin: 0;
+  font-size: 350px;
+  line-height: 1;
+  opacity: 0.5;
+  pointer-events: none;
+}
+section.icon::before { transform: rotate(-45deg); }
+
+/* GLYPH MAP — class name -> watermark emoji. Clone a line to add your
+   own (e.g.  section.lock::before { content: "🔒"; }  then use it with
+   <!-- _class: icon lock -->). On macOS, Ctrl+Cmd+Space opens the emoji
+   picker; paste the emoji between the quotes. */
+section.note::before   { content: "🗒"; }
+section.star::before   { content: "⭐"; }
+section.tech::before   { content: "☸️"; }
+section.cal::before    { content: "📅"; }
+section.ai::before     { content: "🤖"; }
+section.win::before    { content: "🏆"; }
+section.watch::before  { content: "🔭"; }
+section.idea::before   { content: "💡"; }
+section.chart::before  { content: "📊"; }
+section.target::before { content: "🎯"; }
+section.rocket::before { content: "🚀"; }
+
+/* ------------------------------------------------------------
+   Legacy image logo + <span class="logo-emoji"> watermark.
+   Kept for backward compatibility with older decks (e.g. the W18
+   review) and for the title-slide image logo, which is a Markdown
+   image (alt="logo") and therefore export-safe. New decks should
+   prefer the ::after watermark above.
+   ------------------------------------------------------------ */
 section.title img[alt*="logo"],
 section.title .logo-emoji {
   --offset: -1%;
   --rotate: 0deg;
-
-  /* Position in lower right, by default */
   position: absolute;
   margin: 0;
   right:  var(--offset);
   bottom: 0;
-
-  /* For images */
   width: 350px;
   object-fit: contain;
-
-  /* For text emojis */
   font-size: 350px;
   line-height: 1;
-
-  /* Rotate it slightly */
   transform: rotate(var(--rotate));
   opacity: 0.5;
 }
-section {
-  column-gap: 2em;
-  column-rule: 1px solid #ccc;
-}
-
 section.icon img[alt*="logo"],
 section.icon .logo-emoji {
   --offset: -1%;
   --rotate: -45deg;
-
-  /* Position in lower right, by default */
   position: absolute;
   margin: 0;
   right:  var(--offset);
   bottom: 0;
-
-  /* For images */
   width: 350px;
   object-fit: contain;
-
-  /* For text emojis */
   font-size: 350px;
   line-height: 1;
-
-  /* Rotate it slightly */
   transform: rotate(var(--rotate));
   opacity: 0.5;
 }
+
+/* Auto-fit content images (screenshots, diagrams) within the slide.
+   Logos are excluded (sized above) and so are emoji <img> (twemoji,
+   class="emoji") — without the :not(.emoji) guard a bare/inline emoji
+   image would be blown up to fill the slide. Background images
+   (![bg ...]) are unaffected; they are not <img> elements.
+
+   A lone Markdown image is wrapped in a <p>; we give that <p> a definite
+   height (a % of the fixed slide height), center it, then let the image
+   fit inside without upscaling small images. */
+section > p:has(> img:not([alt*="logo"]):not(.emoji)) {
+  height: 72%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section > p > img:not([alt*="logo"]):not(.emoji) {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+/* Keep any emoji <img> (e.g. emoji used inline in a heading) inline-sized. */
+img.emoji { height: 1em; width: 1em; }
