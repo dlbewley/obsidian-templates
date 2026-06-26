@@ -1,5 +1,7 @@
 <%*
-const now = new Date();
+const input = await tp.system.prompt("Any date in the target week (YYYY-MM-DD)", tp.date.now("YYYY-MM-DD"));
+const [yStr, mStr, dStr] = input.trim().split("-");
+const now = new Date(parseInt(yStr), parseInt(mStr) - 1, parseInt(dStr));
 const year = now.getFullYear();
 const month = String(now.getMonth() + 1).padStart(2, '0');
 const weekNumber = getWeekNumber(now);
@@ -51,6 +53,7 @@ for (let i = 0; i < 7; i++) {
 
 // Generate the content
 tR += `---
+contenttype: Journal
 tags:
   - weekly
   - ${year}-W${weekPadded}
@@ -74,20 +77,7 @@ console.log("Rename completed");
 ## 📝 Weekly Notes
 -
 
-## 🎯 Weekly Goals
-- \[ \]
-
-## Week Summary
-
-### 📅 Meetings
-
-```dataview
-TABLE date AS Date, summary AS Summary, series AS Series
-FROM "Meetings"
-WHERE contentType = "Meeting" AND file.name >= "<% formatDate(startOfWeek) %>" AND file.name < "<% formatDate(dayAfterWeek) %>"
-SORT file.name ASC
-```
-
+## `=this.file.name` Weekly Summary
 
 ### 🧑‍💻 Activities
 -
@@ -101,5 +91,12 @@ SORT file.name ASC
 ### 💡Lessons Learned
 -
 
-## ❗️ Next Week Priorities
-- \[ \]
+## 📅 Meetings
+
+```dataview
+TABLE date AS Date, summary AS Summary, series AS Series
+FROM "Meetings"
+WHERE contentType = "Meeting" AND file.name >= "<% formatDate(startOfWeek) %>" AND file.name < "<% formatDate(dayAfterWeek) %>"
+SORT file.name ASC
+```
+

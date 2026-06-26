@@ -1,9 +1,12 @@
-<%* 
-const now = new Date();
-const year = now.getFullYear();
-const month = String(now.getMonth() + 1).padStart(2, '0');
-const day = String(now.getDate()).padStart(2, '0');
-const weekNumber = getWeekNumber(now);
+<%*
+const input = await tp.system.prompt("Date for daily note (YYYY-MM-DD)", tp.date.now("YYYY-MM-DD"));
+const noteDateStr = input.trim();
+const [yStr, mStr, dStr] = noteDateStr.split("-");
+const noteDate = new Date(parseInt(yStr), parseInt(mStr) - 1, parseInt(dStr));
+const year = noteDate.getFullYear();
+const month = String(noteDate.getMonth() + 1).padStart(2, '0');
+const day = String(noteDate.getDate()).padStart(2, '0');
+const weekNumber = getWeekNumber(noteDate);
 const weekPadded = String(weekNumber).padStart(2, '0');
 
 // Function to get week number of the year
@@ -18,8 +21,13 @@ function getWeekNumber(date) {
 // Generate the filename
 const filePath = `Journal/Daily`;
 const fileName = `${year}-${month}-${day}`;
+const monthlyFilePath = `Journal/Monthly`;
 const weekFilePath = `Journal/Weekly`;
 const weekFileName = `${year}-${month}-W${weekPadded}`;
+
+// Offset from the prompted date (fileName), not today
+const yesterdayFileName = tp.date.now("YYYY-MM-DD", -1, fileName, "YYYY-MM-DD");
+const tomorrowFileName = tp.date.now("YYYY-MM-DD", 1, fileName, "YYYY-MM-DD");
 
 // Generate the content
 tR += `---
@@ -30,8 +38,8 @@ tags:
 contenttype: Journal
 ---
 
-# ${fileName}
-
+_[[${yesterdayFileName}|<< Yesterday]] - **${fileName}** - [[${tomorrowFileName}|Tomorrow >>]]_
+_Month: [[${monthlyFilePath}/${year}-${month}]]_
 _Week: [[${weekFilePath}/${weekFileName}]]_
 `;
 
@@ -44,7 +52,7 @@ console.log("Rename completed");
 - \#todo \[\]
 
 ## 📅 Meetings
-- 
+-
 ```dataview
 TABLE summary
 FROM [[]]
@@ -54,7 +62,7 @@ sort file.ctime DESC
 
 
 ## 📘 Notes
-- 
+-
 
 ## ✅ Done
 - \#prodev
