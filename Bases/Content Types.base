@@ -1,0 +1,32 @@
+formulas:
+  icon: |-
+    if(contenttype == "Blog", "✍️",
+    if(contenttype == "Book", "📖",
+    if(contenttype == "Bookmark", "🔖",
+    if(contenttype == "Chat", "💬",
+    if(contenttype == "Contact", "👤",
+    if(contenttype == "Index", "🗂️",
+    if(contenttype == "Journal", "📓",
+    if(contenttype == "Lesson", "👩🏻‍🏫",
+    if(contenttype == "Mail", "✉️",
+    if(contenttype == "Meeting", "📅",
+    if(contenttype == "MeetingSeries", "🔁",
+    if(contenttype == "Note", "📝",
+    if(contenttype == "Presentation", "📊",
+    if(contenttype == "Repo", "📦",
+    if(contenttype == "Web", "🌐"
+      )))))))))))))))
+views:
+  - type: table
+    name: By Content Type
+    groupBy:
+      property: contenttype
+      direction: ASC
+    order:
+      - formula.icon
+      - file.name
+      - file.folder
+      - file.mtime
+    sort:
+      - property: file.name
+        direction: ASC
