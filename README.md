@@ -62,7 +62,7 @@ The value is intially set by the Template or the Web Clipper Template and may be
 | 📅 | Meeting | Individual dated notes for a specific meeting instance. |
 | 🔁 | MeetingSeries | Parent doc for a recurring meeting, accumulating themes and linking instances. |
 | 📝 | Note | General-purpose reference and knowledge notes. |
-| 📽️ | Presentation | Marp slide decks and exported talks. |
+| 📊️ | Presentation | Marp slide decks and exported talks. |
 | 📦 | Repo | Clipped GitHub repository pages saved for reference. |
 | 🌐 | Web | Web pages clipped from the browser for future reference. |
 
