@@ -4,6 +4,7 @@ filters:
 formulas:
   icon: |-
     if(contenttype == "Book", "📖",
+    if(contenttype == "Blog", "✍️",
     if(contenttype == "Bookmark", "🔖",
     if(contenttype == "Chat", "💬",
     if(contenttype == "Contact", "👤",
@@ -17,7 +18,7 @@ formulas:
     if(contenttype == "Presentation", "📊",
     if(contenttype == "Repo", "📦",
     if(contenttype == "Web", "🌐"
-      ))))))))))))))
+      )))))))))))))))
 views:
   - type: table
     name: Table
@@ -28,6 +29,7 @@ views:
       - formula.icon
       - file.name
       - file.path
+      - Topics
     sort:
       - property: file.name
         direction: ASC
