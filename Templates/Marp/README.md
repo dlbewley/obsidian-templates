@@ -86,7 +86,7 @@ e.g. `<!-- _class: icon tech kick -->`.
 ### Watermark glyph (pick one, pair with a layout)
 
 The watermark is referenced by a **name**, not by typing the emoji. The theme
-maps the name to an emoji.
+maps the name to an emoji. See [mylogo.css](Themes/mylogo.css) for current glyph map.
 
 | Name | Emoji | Name | Emoji |
 |------|:-----:|------|:-----:|
