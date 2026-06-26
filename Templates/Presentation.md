@@ -1,10 +1,19 @@
+<%* let author = await tp.system.prompt("Author name", "Dale Bewley") -%>
+<%* let theme = await tp.system.prompt("Marp Theme", "mylogo") -%>
+<%* await tp.file.move(`Presentations/${tp.file.title}`) -%>
 ---
+contenttype: Presentation
+author: <% author %>
+created: "[[<% tp.file.creation_date("YYYY-MM") %>]]"
+tags:
+  - presentation
+  -  <% tp.file.creation_date("YYYY-MM") %>
+topics: []
 marp: true
-theme: mylogo
+theme: <% theme %>
 paginate: true
 html: true
 size: hd
-contenttype: Presentation
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────
@@ -20,10 +29,10 @@ contenttype: Presentation
 
 # Presentation Title
 
-### Author Name
+### <% author %>
 
-> ### Job Title
-> Team Name
+> ### Principal Specialist SA
+> OpenShift NA West
 > Red Hat
 
 ![logo Logo](img/logo.png)
@@ -33,23 +42,22 @@ contenttype: Presentation
 <!-- ─────────────────────────────────────────────────────────────────────────
   Set a running footer for the rest of the deck (markdown + links supported).
   ───────────────────────────────────────────────────────────────────────── -->
-<!-- footer: '**[Author Name](https://www.linkedin.com/in/example)**  **|**  **[github.com/dlbewley/example](https://github.com/dlbewley/)**' -->
+<!-- footer: '**[<% author %>](https://www.linkedin.com/in/example)**  **|**  **[github.com/dlbewley/example](https://github.com/dlbewley/)**' -->
 
 <!-- ─────────────────────────────────────────────────────────────────────────
   SLIDE 2 — Overview / At a Glance
   Table + notepad emoji watermark.
   ───────────────────────────────────────────────────────────────────────── -->
-<!-- _class: icon -->
+<!-- _class: icon note -->
 ## Overview
 
-| Section | Description |
-|---------|-------------|
-| **Topic A** | Brief description of the first area |
+| Section     | Description                          |
+| ----------- | ------------------------------------ |
+| **Topic A** | Brief description of the first area  |
 | **Topic B** | Brief description of the second area |
-| **Topic C** | Brief description of the third area |
+| **Topic C** | Brief description of the third area  |
 | **Topic D** | Brief description of the fourth area |
 
-<span class="logo-emoji">🗒</span><!-- notepad -->
 
 ---
 
@@ -57,21 +65,20 @@ contenttype: Presentation
   SLIDE 3 — Section divider (invert)
   Use for chapter / topic transitions. No emoji needed — the heading fills it.
   ───────────────────────────────────────────────────────────────────────── -->
-<!-- _class: invert icon -->
+<!-- _class: invert icon idea -->
 <!-- header: Topic A -->
 
 # Topic A
 
 ## Subtitle or key question being answered
 
-<span class="logo-emoji">💡</span>
 
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────
   SLIDE 4 — Bullet list with emoji watermark
   ───────────────────────────────────────────────────────────────────────── -->
-<!-- class: icon -->
+<!-- class: icon note -->
 
 ## Key Concept
 
@@ -84,7 +91,6 @@ Brief introductory sentence that frames the slide.
 
 > 💡 A blockquote works well for tips, warnings, or key takeaways.
 
-<span class="logo-emoji">📋</span>
 
 ---
 
@@ -111,7 +117,6 @@ Brief framing sentence that spans both columns.
 - Second characteristic
 - Third characteristic
 
-<span class="logo-emoji">⚖️</span>
 
 ---
 
@@ -159,6 +164,7 @@ my-resource   Ready    2m
   Inline code, shell output, and an emoji watermark.
   Speaker notes go in an HTML comment after the slide content.
   ───────────────────────────────────────────────────────────────────────── -->
+<!-- class: icon magnify -->
 
 ## Examining the Result
 
@@ -176,7 +182,6 @@ Field:   value
 Output:  expected-result
 ```
 
-<span class="logo-emoji">🔍</span>
 
 <!--
   Speaker notes go here — not visible in the slide, only in presenter view.
@@ -191,6 +196,7 @@ Output:  expected-result
   Collect the key takeaways after a topic section.
   ───────────────────────────────────────────────────────────────────────── -->
 <!-- header: Topic A › Summary -->
+<!-- class: icon books -->
 
 ## Topic A — Summary
 
@@ -203,7 +209,6 @@ Output:  expected-result
 - First takeaway
 - Second takeaway
 
-<span class="logo-emoji">📚</span>
 
 ---
 
@@ -212,14 +217,12 @@ Output:  expected-result
   Good for diagrams or architecture drawings. `contain` fits the image inside
   the slide without cropping; `cover` fills the whole background.
   ───────────────────────────────────────────────────────────────────────── -->
-<!-- _class: icon -->
+<!-- _class: icon crane -->
 <!-- header: Topic B -->
 
 ## Architecture Diagram
 
 ![contain](img/openshift.png)
-
-<span class="logo-emoji">🏗️</span>
 
 ---
 
@@ -227,7 +230,7 @@ Output:  expected-result
   SLIDE 10 — References / further reading
   ───────────────────────────────────────────────────────────────────────── -->
 <!-- header: References -->
-<!-- class: icon -->
+<!-- class: icon books -->
 
 ## References & Further Reading
 
@@ -241,20 +244,18 @@ Output:  expected-result
 ### Blog Posts & Talks
 - [Title of Post](https://example.com/post) — _Author, YYYY-MM_
 
-<span class="logo-emoji">📚</span>
 
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────
   SLIDE 11 — Closing / lead
   ───────────────────────────────────────────────────────────────────────── -->
-<!-- _class: lead icon -->
+<!-- _class: lead icon target -->
 <!-- _paginate: skip -->
 
 # Thank You
 
 _Questions?_
 
-**Author Name** · [linkedin.com/in/example](https://linkedin.com/in/example)
+**<% author %>** · [linkedin.com/in/example](https://linkedin.com/in/example)
 
-<span class="logo-emoji">🎯</span>
