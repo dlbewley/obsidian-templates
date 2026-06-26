@@ -7,8 +7,9 @@ email: []
 blog:
 github-login:
 work-login:
+contenttype: Contact
 ---
-`= this.file.name` is a x in Y
+`= this.file.name` is a X in Y
 ## Contact
 - Email `= "[" + this.email + "](mailto://" + this.email[0] + ")"`
 - Rover `= "[" + this.work-login + "](https://rover.redhat.com/people/profile/" + this.work-login + ")"`

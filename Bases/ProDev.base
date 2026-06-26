@@ -1,0 +1,27 @@
+filters:
+  and:
+    - file.path.contains("ProDev")
+views:
+  - type: table
+    name: All ProDev
+    order:
+      - file.name
+      - date
+      - tags
+    sort:
+      - property: date
+        direction: DESC
+  - type: table
+    name: Quarterly Connections
+    filters:
+      and:
+        - file.path.contains("Quarterly-Connections")
+    order:
+      - file.name
+      - quarter
+      - date
+    sort:
+      - property: quarter
+        direction: DESC
+  - type: cards
+    name: Cards

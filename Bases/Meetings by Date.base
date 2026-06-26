@@ -1,0 +1,87 @@
+filters:
+  and:
+    - contentType == "Meeting"
+formulas:
+  recording_link: if(recording, link(recording, "📹"), "")
+  series_link: if(series, link(series, "🔄"), "")
+  meeting_date: if(date, date.format("YYYY-MM-DD ddd"), "")
+properties:
+  date:
+    displayName: Date
+  summary:
+    displayName: Summary
+  formula.meeting_date:
+    displayName: When
+  formula.series_link:
+    displayName: Series
+  formula.recording_link:
+    displayName: Recording
+views:
+  - type: table
+    name: All by Date
+    order:
+      - file.name
+      - summary
+      - formula.recording_link
+      - formula.series_link
+      - Topics
+    sort:
+      - property: date
+        direction: DESC
+  - type: table
+    name: On This Day
+    filters:
+      and:
+        - date.format("YYYY-MM-DD") == this.file.basename
+    order:
+      - formula.meeting_date
+      - file.name
+      - summary
+      - formula.recording_link
+      - formula.series_link
+    sort:
+      - property: date
+        direction: ASC
+  - type: table
+    name: This Week
+    filters:
+      and:
+        - this.file.hasTag(date.format("YYYY-[W]WW"))
+    order:
+      - formula.meeting_date
+      - file.name
+      - summary
+      - formula.recording_link
+      - formula.series_link
+    sort:
+      - property: date
+        direction: ASC
+  - type: table
+    name: This Month
+    filters:
+      and:
+        - date.format("YYYY-MM") == this.file.basename
+    order:
+      - formula.meeting_date
+      - file.name
+      - summary
+      - formula.recording_link
+      - formula.series_link
+    sort:
+      - property: date
+        direction: ASC
+  - type: table
+    name: In Date Range
+    filters:
+      and:
+        - date >= date(this.period_start)
+        - date < (date(this.period_end) + "1 day")
+    order:
+      - formula.meeting_date
+      - file.name
+      - summary
+      - formula.recording_link
+      - formula.series_link
+    sort:
+      - property: date
+        direction: ASC

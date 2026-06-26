@@ -1,12 +1,13 @@
 <%*
-const now = new Date();
-const year = now.getFullYear();
-const month = String(now.getMonth() + 1).padStart(2, '0');
-
+const input = await tp.system.prompt("Month (YYYY-MM)", tp.date.now("YYYY-MM"));
+const [yearStr, monthStr] = input.trim().split("-");
+const year = parseInt(yearStr);
+const month = monthStr.padStart(2, '0');
+const monthNum = parseInt(month) - 1; // 0-indexed for Date constructor
 
 // Get the first and last day of the month
-const firstDay = new Date(year, now.getMonth(), 1);
-const lastDay = new Date(year, now.getMonth() + 1, 0);
+const firstDay = new Date(year, monthNum, 1);
+const lastDay = new Date(year, monthNum + 1, 0);
 
 // Format dates for daily note links
 const formatDate = (date) => {
@@ -17,11 +18,7 @@ const formatDate = (date) => {
 
 // Generate calendar grid for the month
 const calendarGrid = [];
-const currentDate = new Date(firstDay);
-
-// Get the first day of the month and find what day of the week it falls on
-const firstDayOfMonth = new Date(year, now.getMonth(), 1);
-const firstDayOfWeek = firstDayOfMonth.getDay(); // 0 = Sunday, 1 = Monday, etc.
+const firstDayOfWeek = firstDay.getDay(); // 0 = Sunday, 1 = Monday, etc.
 
 // Create calendar header
 const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -29,9 +26,8 @@ calendarGrid.push('| ' + weekDays.join(' | ') + ' |');
 calendarGrid.push('|' + ' --- |'.repeat(7));
 
 // Add empty cells for days before the first day of the month
-const emptyCells = firstDayOfWeek;
 const firstRow = [];
-for (let i = 0; i < emptyCells; i++) {
+for (let i = 0; i < firstDayOfWeek; i++) {
     firstRow.push(' |');
 }
 
@@ -40,8 +36,8 @@ let currentRow = [...firstRow];
 const lastDayOfMonth = lastDay.getDate();
 
 for (let day = 1; day <= lastDayOfMonth; day++) {
-    const dateStr = formatDate(new Date(year, now.getMonth(), day));
-    const dayOfWeek = new Date(year, now.getMonth(), day).getDay();
+    const dateStr = formatDate(new Date(year, monthNum, day));
+    const dayOfWeek = new Date(year, monthNum, day).getDay();
 
     // If it's Sunday (0), start a new row
     if (dayOfWeek === 0 && day > 1) {
@@ -112,6 +108,7 @@ const fileName = `${year}-${month}`;
 
 // Generate the content
 tR += `---
+contenttype: Journal
 tags:
   - monthly
   - ${year}-${month}
