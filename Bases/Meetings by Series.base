@@ -22,12 +22,11 @@ views:
       - summary
       - formula.recording_link
       - formula.series_link
-
   - type: table
     name: Meetings This Month
     filters:
       and:
-        - 'file.hasTag(this.file.basename)'
+        - file.hasTag(this.file.basename)
     groupBy:
       property: series
       direction: ASC
