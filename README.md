@@ -33,13 +33,13 @@ A couple plugins are required by the for [Shimmering Obsidian](http://alfred.app
 | [Calendar](https://github.com/liamcain/obsidian-calendar-plugin) | Calendar view for navigating and creating daily notes. | ⭐️⭐️️⭐️⭐️️️️️️️️  |
 | [Dataview](https://github.com/blacksmithgu/obsidian-dataview) | Query and display vault data as tables, lists, and calendars using a SQL-like syntax. See [Templates/Person.md](Templates/Person.md). It's possible I could obviate this with the [Bases core plugin](https://obsidian.md/help/bases). 🤷‍♀️ | ⭐️⭐️⭐️⭐️⭐️ |
 | [Git](https://github.com/Vinzent03/obsidian-git) | Automatically commit and push vault changes to a Git repository. | ⭐️⭐️ |
-| Marp | Markdown Presentation Engine frontmatter properties. See example in [Templates/Presentation.md](Templates/Presentation.md) and the [Themes](Templates/Marp/Themes/) | ⭐️⭐️⭐️⭐️ |
+| [Marp Slides](https://github.com/samuele-cozzi/obsidian-marp-slides) | Markdown Presentation Engine frontmatter properties. See example in [Templates/Presentation.md](Templates/Presentation.md) and the [Themes](Templates/Marp/Themes/) | ⭐️⭐️⭐️⭐️ |
 | [Meta Bind](https://github.com/mProjectsCode/obsidian-meta-bind-plugin) | Inline input fields and buttons bound to note frontmatter properties. See example in [Templates/Meeting.md](Templates/Meeting.md) | ⭐️⭐️⭐️⭐️ |
 | [Metadata Extractor](https://github.com/kometenstaub/metadata-extractor) | Exports vault metadata to JSON for use by external tools. For Alfred Workflow. | ⭐️⭐⭐⭐⭐️ |
 | [Omnisearch](https://github.com/scambier/obsidian-omnisearch) | Full-text search with fuzzy matching and PDF/image content indexing. | ⭐️⭐⭐️⭐️⭐️️ |
 | [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) | UI for customizing theme CSS variables without editing code. | ⭐️️ |
 | [Tasks](https://publish.obsidian.md/tasks/Introduction) | Task management with due dates, recurrence, and queries across the vault. | ⭐️️⭐️⭐️ |
-| Taskboard | Task management with Kanban board. I'm not really using it much yet. | ⭐️️⭐️️ |
+| [Task Board](https://github.com/tu2-atmanand/Task-Board) | Task management with Kanban board. I'm not really using it much yet. | ⭐️️⭐️️ |
 | [Templater](https://github.com/SilentVoid13/Templater) | Powerful template engine with JavaScript scripting and auto-file placement. | ⭐️⭐️⭐️⭐️⭐️ |
 | [Text Extractor](https://github.com/scambier/obsidian-text-extractor) | Extracts text from PDFs and images to make them searchable by Omnisearch. | ⭐⭐⭐⭐️⭐️ |
 
@@ -75,6 +75,14 @@ For example, if I'm actively taking notes in a meeting (yes I do that) and a nam
 This is one reason I often use the Templater style of templates. My [Person](Templates/Person.md) template would automatically move the note for me when I applied it to the 'Fred Jones' note even if I hadn't already prefixed it with `People`.
 
 Remember, it is really easy to move notes, and it is really easy to find them regardless of where they are. Don't let figuring out a folder structure block you from getting started with Obsidian.
+
+* Obsidian Bases are easily constructed by Agents, let them do it for you. Store them in `Bases/` to make them easy to differentitate from normal notes. It is helpful to included bases in templates.
+
+```
+Bases/
+  ├── Clippings.base
+  └── Topic Links.base
+```
 
 * Web Clipper Clippings By Source
 ```
